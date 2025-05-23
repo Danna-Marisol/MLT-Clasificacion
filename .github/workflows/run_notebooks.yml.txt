@@ -1,0 +1,65 @@
+name: ML Pipeline - Notebook Execution
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  execute-notebooks:
+    name: Execute Notebooks in Sequence
+    runs-on: ubuntu-latest
+    timeout-minutes: 30  # Aumenta si tus notebooks son muy largos
+    
+    steps:
+    # Paso 1: Checkout del código
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      
+    # Paso 2: Configurar Python
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    
+    # Paso 3: Instalar dependencias
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install notebook nbconvert papermill
+        pip install pandas scikit-learn matplotlib seaborn tensorflow
+    
+    # Paso 4: Ejecutar notebooks en orden
+    - name: Run Exploratory Analysis
+      run: |
+        jupyter nbconvert --execute --to notebook --inplace Analisis_exploratorio.ipynb
+        # Opcional: Convertir a HTML para visualización
+        jupyter nbconvert --to html Analisis_exploratorio.ipynb
+        
+    - name: Run Preprocessing
+      run: |
+        jupyter nbconvert --execute --to notebook --inplace Preprocesamiento.ipynb
+        jupyter nbconvert --to html Preprocesamiento.ipynb
+        
+    - name: Run Model Training
+      run: |
+        jupyter nbconvert --execute --to notebook --inplace Entrenamiento_y_validación_del_modelo.ipynb
+        jupyter nbconvert --to html Entrenamiento_y_validación_del_modelo.ipynb
+        
+    - name: Run Final Evaluation
+      run: |
+        jupyter nbconvert --execute --to notebook --inplace Evaluación_final_y_exportacion.ipynb
+        jupyter nbconvert --to html Evaluación_final_y_exportacion.ipynb
+    
+    # Paso 5: Subir resultados como artefactos
+    - name: Upload Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: notebook-results
+        path: |
+          *.html
+          *.pkl
+          *.h5
+          *.csv
+        retention-days: 1

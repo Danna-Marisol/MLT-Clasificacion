@@ -1,21 +1,11 @@
-# Bibliotecas principales para manipulación de datos
+mlflow>=2.3.0
 pandas>=1.3.0
 numpy>=1.21.0
-
-# Visualización
-matplotlib>=3.4.0
-
-# Scikit-learn (agrupando todos los componentes)
 scikit-learn>=1.0.0
-
-# MLflow para experimentación y tracking
-mlflow>=1.26.0
-
-# Pyngrok para tunneling (opcional si no usas ngrok, puedes eliminarlo)
-pyngrok>=5.0.0
-
-# Joblib para serialización
+matplotlib>=3.5.0
+seaborn>=0.11.0
+tensorflow>=2.6.0
+jupyter>=1.0.0
+papermill>=2.3.0
+gdown>=4.4.0
 joblib>=1.1.0
-
-# Dependencias adicionales del sistema
-# (os es parte de Python estándar, no necesita instalación)

@@ -27,9 +27,9 @@ Se usaron solo las primeras 4 caracteristicas con mayor información mutua para 
 'hbA1c_level', 'blood_glucose_level', 'age', 'bmi'
 No se usó lazypredict para evaluar los modelos de clasificación por que no hay suficiente ram para ejecutarlo.
 Se evaluaron solo 3 modelos de clasificación: Logistic Regression, DecisionTreeClassifier y RandomForestClassifier.
-Modelo con mejor Accuracy y MAE: RandomForestClassifier
+Modelo con mejor Accuracy y MAE: RandomForestClassifier 
+El código final fue adaptado a la ejecución en github usando deepseek, originalmente fue hecho en google colab y mostrando las métricas en mlflow con ngrok
 
-El código final fue adaptado a la ejecución en github usando deepseek, originalmente fue hecho en google colab y mostrado en mlflow con ngrok
 =======================================================================
 
 Resultados y métricas principales:

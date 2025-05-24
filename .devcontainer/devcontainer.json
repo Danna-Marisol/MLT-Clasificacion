@@ -1,0 +1,16 @@
+{
+    "name": "ML Pipeline Environment",
+    "forwardPorts": [5000],  # Para MLflow UI
+    "postCreateCommand": "pip install -r requirements.txt",
+    "customizations": {
+        "codespaces": {
+            "openFiles": ["Analisis_exploratorio.ipynb"]
+        },
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+}

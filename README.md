@@ -13,8 +13,7 @@ Dataset: Diabetes Clinical Dataset(100k rows)
 
 Fuente: Kaggle ----> https://www.kaggle.com/datasets/ziya07/diabetes-clinical-dataset100k-rows
 
-Se puede acceder a él a través del archivo: diabetes_dataset_with_notes.rar
-o a través del enlace de google drive indicado den cada notebook.
+Se accede al dataset descomprimiendo un archivo .zip llamado desde la nube
 
   Acerca del conjunto de datos
   
@@ -30,6 +29,7 @@ No se usó lazypredict para evaluar los modelos de clasificación por que no hay
 Se evaluaron solo 3 modelos de clasificación: Logistic Regression, DecisionTreeClassifier y RandomForestClassifier.
 Modelo con mejor Accuracy y MAE: RandomForestClassifier
 
+El código final fue adaptado a la ejecución en github usando deepseek, originalmente fue hecho en google colab y mostrado en mlflow con ngrok
 =======================================================================
 
 Resultados y métricas principales:
